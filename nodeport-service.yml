@@ -4,16 +4,18 @@ metadata:
   labels:
     app: apache-web-app
   name: apache-deployment
+  namespace: default
 spec:
+  externalTrafficPolicy: Cluster
   internalTrafficPolicy: Cluster
   ipFamilies:
   - IPv4
   ipFamilyPolicy: SingleStack
   ports:
-  - port: 80
+  - nodePort: 32000
+    port: 80
     protocol: TCP
     targetPort: 80
-    nodePort: 32000
   selector:
     app: apache-web-app
   sessionAffinity: None

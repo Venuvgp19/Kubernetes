@@ -16,6 +16,7 @@ spec:
     spec:
       containers:
       - name: apache-web-app
-        image: localhost/devops@sha256:467607e2482f819ec63198262f808f9e46501a04e1e045f1588465dc0acde691
+        image: devops:latest
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
