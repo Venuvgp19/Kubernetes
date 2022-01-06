@@ -1,0 +1,14 @@
+---
+#Deployment to Kubernetes cluster
+-
+  hosts: local
+  tasks:
+  - name: deploy
+    command: "{{ item }}"
+    with_items:
+    - git pull
+    - kubectl rollout restart deployment.apps/apache-deployment
+#    - kubectl apply -f /home/kube/Kubernetes/k8-deployment.yml
+    args:
+      chdir: /home/gitlab-runner/sample_cicd
+      

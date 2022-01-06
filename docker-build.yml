@@ -1,0 +1,15 @@
+---
+#Building docker images
+-
+  hosts: worker
+  tasks:
+  - name: pull project
+    command: git pull
+    args:
+      chdir: /home/gitlab-runner/sample_cicd/
+
+  - name: build image   
+    command: docker build -t devops:latest .
+    args:
+      chdir: /home/gitlab-runner/sample_cicd/
+

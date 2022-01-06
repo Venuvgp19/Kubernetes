@@ -1,0 +1,5 @@
+[worker]
+<worker node name>
+
+[master]
+local ansible_connection=local
